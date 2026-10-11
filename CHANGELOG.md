@@ -1,3 +1,23 @@
+# Changelog
+
+All notable changes to this project are documented here. This file is maintained
+automatically by [semantic-release](https://github.com/semantic-release/semantic-release)
+on every release to `main`.
+
+## [0.6.4](https://github.com/bauer-group/CS-ClientPublicIP/compare/v0.6.3...v0.6.4) (2026-10-11)
+
+### 🐛 Bug Fixes
+
+* **ci:** added the missing permissions block ([968340d](https://github.com/bauer-group/CS-ClientPublicIP/commit/968340db2585a7fbad7dec4828dcb67e0ce79d69))
+* **deps:** updated flask from 3.1.2 to 3.1.3 ([53bc092](https://github.com/bauer-group/CS-ClientPublicIP/commit/53bc092f61c3a99d0eb873dd2bfeb132acb4c41e))
+
+### 🔧 Maintenance
+
+* **ci:** removed issue AI summary workflow ([8fbef33](https://github.com/bauer-group/CS-ClientPublicIP/commit/8fbef330548517f7448110041595be4e3c819888)), references [bauer-group/automation-templates#105](https://github.com/bauer-group/automation-templates/issues/105)
+* **ci:** removed redundant teams notification ([11be434](https://github.com/bauer-group/CS-ClientPublicIP/commit/11be434f168bdb434a573e5931859ade6d1f665a))
+* **codeowners:** reassigned ownership to core team [skip ci] ([e0ad16d](https://github.com/bauer-group/CS-ClientPublicIP/commit/e0ad16d3de879a93236b26beb8cc01b2849152ad))
+* update Dockerfile version to 0.6.3 ([7267e48](https://github.com/bauer-group/CS-ClientPublicIP/commit/7267e482fcd13f12c4cd0aa153bbd04315229bc3))
+
 ## [0.6.3](https://github.com/bauer-group/CS-ClientPublicIP/compare/v0.6.2...v0.6.3) (2026-01-10)
 
 
