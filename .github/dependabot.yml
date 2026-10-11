@@ -3,6 +3,10 @@
 # =============================================================================
 # Monitors Docker base images for updates
 # Combined with docker-maintenance.yml workflow for auto-merge and release
+#
+# The commit prefix decides whether a merged update is released: fix(...)
+# cuts a PATCH release and rebuilds the image, chore(...) releases nothing.
+# Everything that ends up in the shipped image uses fix(...).
 # =============================================================================
 
 version: 2
@@ -19,10 +23,32 @@ updates:
       - "dependencies"
       - "docker"
       - "dependabot"
+    # No include: "scope" - the prefix already has one, and Dependabot would
+    # append "(deps)" to it (fix(docker)(deps): ...).
     commit-message:
       prefix: "fix(docker)"
-      include: "scope"
     open-pull-requests-limit: 5
+
+  # Python packages installed into the image (src/requirements.txt).
+  # Version updates are off (limit 0) as before; the entry sets the commit
+  # prefix of Dependabot's security updates, which are not subject to the
+  # limit - without it they arrive as chore(deps) and a merged security fix
+  # is never released.
+  - package-ecosystem: "pip"
+    directory: "/src"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "06:30"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "python"
+      - "dependabot"
+    commit-message:
+      prefix: "fix(deps)"
+      prefix-development: "chore(deps-dev)"
+    open-pull-requests-limit: 0
 
   # GitHub Actions updates
   - package-ecosystem: "github-actions"
